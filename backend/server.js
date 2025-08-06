@@ -6,7 +6,7 @@ const Match = require('./models/Match');
 const app = express();
 app.use(cors());
 
-mongoose.connect('mongodb://localhost:27017/ipl-dashboard', {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -16,4 +16,5 @@ app.get('/api/matches', async (req, res) => {
   res.json(matches);
 });
 
-app.listen(5000, () => console.log('Server started on port 5000'));
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
