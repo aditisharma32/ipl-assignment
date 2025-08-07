@@ -5,7 +5,7 @@ const MatchList = () => {
   const [matches, setMatches] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/matches')
+    axios.get('https://ipl-assignment.onrender.com/api/matches')
       .then(res => setMatches(res.data))
       .catch(err => console.error(err));
   }, []);
